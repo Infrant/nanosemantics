@@ -56,7 +56,7 @@ module.exports = {
                 exclude: /\.module\.(css|s[ac]ss)$/,
             },
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
