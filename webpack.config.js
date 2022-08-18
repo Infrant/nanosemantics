@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isDevelopment = process.env.NODE_ENV.trim() === 'development'
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
@@ -56,12 +56,24 @@ module.exports = {
                 exclude: /\.module\.(css|s[ac]ss)$/,
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                        presets: [
+                            '@babel/preset-env',
+                            ['@babel/preset-react', {'runtime': 'automatic'}],
+                            '@babel/preset-typescript'
+                        ],
+                        plugins: [
+                            [
+                                '@babel/plugin-proposal-class-properties',
+                                {
+                                    'loose': true
+                                }
+                            ]
+                        ]
                     },
                 },
             },
@@ -69,12 +81,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html'),
-            filename: '[name].[contenthash].html'
+            template: path.join(__dirname, 'src', 'index.html')
         }),
         new MiniCssExtractPlugin({filename: '[name].[contenthash].css'})
     ],
     resolve: {
-        extensions: ['.js', '.jsx', '.scss']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.json']
     }
 };
