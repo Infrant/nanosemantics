@@ -1,0 +1,34 @@
+@import "../../variables";
+
+.header {
+  background: $base-color;
+  color: $font-color;
+  height: 60px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__caption {
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__update {
+    transition-duration: .5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+    
+    &__wrapper {
+      position: absolute !important;
+      top: 4px;
+      right: 8px;
+    }
+  }
+}
