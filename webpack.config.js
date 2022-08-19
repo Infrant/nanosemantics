@@ -62,18 +62,20 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            '@babel/preset-env',
-                            ['@babel/preset-react', {'runtime': 'automatic'}],
-                            '@babel/preset-typescript'
-                        ],
-                        plugins: [
                             [
-                                '@babel/plugin-proposal-class-properties',
+                                '@babel/preset-env',
                                 {
                                     'loose': true
                                 }
-                            ]
-                        ]
+                            ],
+                            [
+                                '@babel/preset-react',
+                                {
+                                    'runtime': 'automatic'
+                                }
+                            ],
+                            '@babel/preset-typescript'
+                        ],
                     },
                 },
             },
