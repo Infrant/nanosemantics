@@ -24,7 +24,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
+                            modules: {
+                                localIdentName: '[local]__[hash:base64:5]'
+                            },
                             sourceMap: isDevelopment
                         },
                     },
@@ -88,6 +90,9 @@ module.exports = {
         new MiniCssExtractPlugin({filename: '[name].[contenthash].css'})
     ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.json'],
+        alias: {
+            components: path.resolve(__dirname, 'src/components/')
+        }
     }
 };
