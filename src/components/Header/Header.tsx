@@ -10,7 +10,7 @@ export default () => {
             <div className={css['header__caption']}>
                 <FontAwesomeIcon icon={faComments} size='2x'/>
             </div>
-            <IconButton color='inherit' size='large' className={css['header__update__wrapper']}>
+            <IconButton color='secondary' size='large' className={css['header__update__wrapper']}>
                 <FontAwesomeIcon icon={faRotateRight} className={css['header__update']} size='xs'/>
             </IconButton>
         </div>
