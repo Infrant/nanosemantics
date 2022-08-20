@@ -22,15 +22,19 @@ export default () => {
     const onKeyDown = useCallback(
         (e: React.KeyboardEvent<HTMLInputElement>): void => {
             if (e.code !== 'Enter') return
-            onSendMessage(inputValue)
+            onSendMessage()
         },
         [inputValue]
     )
 
-    const onSendMessage = (inputValue: string) => {
-        if(!inputValue) return
-        console.log('send ')
-    }
+    const onSendMessage = useCallback(
+        () => {
+            if (!inputValue) return
+            console.log('send ', inputValue)
+            setInputValue('')
+        }
+        , [inputValue]
+    )
 
     /**
      * Render
@@ -38,6 +42,7 @@ export default () => {
     return (
         <div className={css['input-field']}>
             <TextField
+                autoFocus
                 value={inputValue}
                 id="outlined-basic"
                 label="Add your message"
@@ -49,6 +54,7 @@ export default () => {
             />
             <SendButton
                 isDisabled={!inputValue}
+                onSendMessage={onSendMessage}
             />
         </div>
     )

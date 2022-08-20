@@ -4,19 +4,20 @@ import SendIcon from "@mui/icons-material/Send";
 
 interface SendButtonProps {
     isDisabled: boolean
+    onSendMessage: () => void
 }
 
-export default ({isDisabled}: SendButtonProps) => {
+export default ({isDisabled, onSendMessage}: SendButtonProps) => {
     return (
             <LoadingButton
                 size="small"
-                // onClick={handleClick}
                 endIcon={<SendIcon/>}
                 // loading={loading}
                 loadingPosition="end"
                 variant="contained"
                 disabled={isDisabled}
                 style={{height: '38px', minWidth: "90px"}}
+                onClick={onSendMessage}
             >
                 Send
             </LoadingButton>
