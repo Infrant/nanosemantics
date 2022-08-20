@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
 })
 
 const persistConfig = {
-    key: 'root',
+    key: 'chatBot',
     version: 1,
     storage,
 }
