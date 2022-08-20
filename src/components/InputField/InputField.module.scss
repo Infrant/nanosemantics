@@ -1,6 +1,12 @@
+@import "../../variables";
+
 .input-field {
   height: 60px;
   padding: 10px 15px;
   display: flex;
   align-items: center;
+
+  & > *:first-child {
+    margin-right: 5px;
+  }
 }
