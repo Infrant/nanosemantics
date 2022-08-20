@@ -1,4 +1,4 @@
-import {BOT, USER} from "../constants";
+import {BOT, USER} from "../constants/constants";
 
 export type author = typeof USER | typeof BOT
 
