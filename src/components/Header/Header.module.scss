@@ -3,28 +3,19 @@
 .header {
   background: $base-color;
   color: $font-color;
-  height: 60px;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  position: relative;
+  padding: 18px 5px 18px 30px;
   border-bottom: 1px solid #fff;
 
   &__caption {
-    padding-left: 10px;
-    font-weight: bold;
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__update {
     transition-duration: .5s;
 
     &__wrapper {
-      position: absolute !important;
-      top: 4px;
-      right: 8px;
 
       &:hover .header__update {
         transform: scale(1.2);

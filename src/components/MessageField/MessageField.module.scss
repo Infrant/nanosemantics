@@ -1,5 +1,12 @@
 .message-field {
-  min-height: 500px;
-  max-height: 700px;
-  padding: 10px 15px 0 15px;
+  height: 500px;
+  padding: 10px 15px 5px 15px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: 10px;
+  }
 }
