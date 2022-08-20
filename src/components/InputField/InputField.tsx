@@ -22,13 +22,14 @@ export default () => {
     const onKeyDown = useCallback(
         (e: React.KeyboardEvent<HTMLInputElement>): void => {
             if (e.code !== 'Enter') return
-            onSendMessage()
+            onSendMessage(inputValue)
         },
-        []
+        [inputValue]
     )
 
-    const onSendMessage = () => {
-        console.log('send')
+    const onSendMessage = (inputValue: string) => {
+        if(!inputValue) return
+        console.log('send ')
     }
 
     /**
@@ -46,7 +47,9 @@ export default () => {
                 onChange={onInputChange}
                 onKeyDown={onKeyDown}
             />
-            <SendButton/>
+            <SendButton
+                isDisabled={!inputValue}
+            />
         </div>
     )
 }
