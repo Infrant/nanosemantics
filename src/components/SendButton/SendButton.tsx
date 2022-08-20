@@ -7,8 +7,7 @@ interface SendButtonProps {
     onSendMessage: () => void
 }
 
-export default React.memo(
-    ({isDisabled, onSendMessage}: SendButtonProps) => {
+export default React.memo(({isDisabled, onSendMessage}: SendButtonProps) => {
         return (
             <LoadingButton
                 size="small"
@@ -17,7 +16,7 @@ export default React.memo(
                 loadingPosition="end"
                 variant="contained"
                 disabled={isDisabled}
-                style={{height: '38px', minWidth: "90px"}}
+                style={{height: '40px', minWidth: "100px"}}
                 onClick={onSendMessage}
             >
                 Send
