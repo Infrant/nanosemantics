@@ -7,7 +7,18 @@ interface ChatState {
 }
 
 const initialState: ChatState = {
-    messages: [],
+    messages: [
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+        {author: 'user', message: 'some text'},
+    ],
     isLoading: false
 }
 
