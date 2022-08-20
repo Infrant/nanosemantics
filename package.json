@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set NODE_ENV=development && webpack --mode=development",
     "build": "set NODE_ENV=production && webpack --mode=production",
     "serve": "set NODE_ENV=development && webpack serve --mode=development"
@@ -27,7 +26,8 @@
     "classnames": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
