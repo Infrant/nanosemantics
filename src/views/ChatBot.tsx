@@ -5,7 +5,7 @@ import MessageField from "../components/MessageField/MessageField";
 
 export default () => {
     return (
-        <div className={css.chatBot}>
+        <div className={css['chat-bot']}>
             <Header/>
             <MessageField/>
             <InputField/>
