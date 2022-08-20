@@ -1,0 +1,21 @@
+@import "../../variables";
+
+.message {
+  color: $font-color;
+  box-sizing: border-box;
+  max-width: 200px;
+  width: fit-content;
+  padding: 10px;
+  background: $base-color;
+  word-wrap: break-word;
+  border-radius: 10px;
+
+  &__user {
+    align-self: flex-end;
+  }
+
+  &__bot {
+    background: lighten($base-color, 10%);
+    align-self: flex-start;
+  }
+}
