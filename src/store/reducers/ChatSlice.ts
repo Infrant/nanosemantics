@@ -7,18 +7,7 @@ interface ChatState {
 }
 
 const initialState: ChatState = {
-    messages: [
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-        {author: 'user', message: 'some text'},
-    ],
+    messages: [],
     isLoading: false
 }
 
@@ -28,9 +17,12 @@ const chatSlice = createSlice({
     reducers: {
         addMessage(state, action: PayloadAction<MessageType>) {
             state.messages.push(action.payload)
+        },
+        clearHistory() {
+            return initialState
         }
-    }
+    },
 })
 
 export default chatSlice.reducer
-export const {addMessage} = chatSlice.actions
+export const {addMessage, clearHistory} = chatSlice.actions
