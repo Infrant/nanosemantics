@@ -5,6 +5,8 @@
   padding: 10px 15px;
   display: flex;
   align-items: center;
+  border-top: 1px solid lighten(lightgray, 5%);
+  background: lightgray;
 
   & > *:first-child {
     margin-right: 5px;

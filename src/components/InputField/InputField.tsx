@@ -1,18 +1,34 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import css from './InputField.module.scss'
 import SendButton from "../SendButton/SendButton";
+import {TextField} from "@mui/material";
 
 export default () => {
     /**
-     * Statenpm install @mui/icons-material
+     * State
      */
     const [inputValue, setInputValue] = useState<string>('')
 
     /**
      * Handlers
      */
-    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setInputValue(e.target.value)
+    const onInputChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>): void => {
+            setInputValue(e.target.value)
+        },
+        []
+    )
+
+    const onKeyDown = useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>): void => {
+            if (e.code !== 'Enter') return
+            onSendMessage()
+        },
+        []
+    )
+
+    const onSendMessage = () => {
+        console.log('send')
     }
 
     /**
@@ -20,7 +36,16 @@ export default () => {
      */
     return (
         <div className={css['input-field']}>
-            <input type="text" value={inputValue} onChange={onInputChange}/>
+            <TextField
+                value={inputValue}
+                id="outlined-basic"
+                label="Add your message"
+                variant="outlined"
+                size='small'
+                style={{width: '100%'}}
+                onChange={onInputChange}
+                onKeyDown={onKeyDown}
+            />
             <SendButton/>
         </div>
     )

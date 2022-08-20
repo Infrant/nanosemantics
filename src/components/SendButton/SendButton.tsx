@@ -11,6 +11,7 @@ export default () => {
                 // loading={loading}
                 loadingPosition="end"
                 variant="contained"
+                style={{height: '38px', minWidth: "90px"}}
             >
                 Send
             </LoadingButton>
