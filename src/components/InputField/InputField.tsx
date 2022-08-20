@@ -1,10 +1,11 @@
 import React, {useState, useCallback} from 'react'
+import {TextField} from "@mui/material";
 import css from './InputField.module.scss'
 import SendButton from "../SendButton/SendButton";
-import {TextField} from "@mui/material";
+import {useAppDispatch} from "../../hooks/redux";
+import {addMessage} from "../../store/reducers/ChatSlice";
 
-export default React.memo(
-    () => {
+export default React.memo(() => {
         /**
          * State
          */
@@ -13,6 +14,8 @@ export default React.memo(
         /**
          * Handlers
          */
+        const dispatch = useAppDispatch();
+
         const onInputChange = useCallback(
             (e: React.ChangeEvent<HTMLInputElement>): void => {
                 setInputValue(e.target.value)
@@ -31,10 +34,10 @@ export default React.memo(
         const onSendMessage = useCallback(
             () => {
                 if (!inputValue) return
-                console.log('send ', inputValue)
+                dispatch(addMessage({author: 'user', message: inputValue}))
                 setInputValue('')
-            }
-            , [inputValue]
+            },
+            [inputValue]
         )
 
         /**
@@ -46,7 +49,7 @@ export default React.memo(
                     autoFocus
                     value={inputValue}
                     id="outlined-basic"
-                    label={'Your message'}
+                    label='Your message'
                     variant="outlined"
                     size='small'
                     style={{width: '100%'}}

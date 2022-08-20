@@ -4,8 +4,7 @@ import Header from "../components/Header/Header";
 import InputField from "../components/InputField/InputField";
 import MessageField from "../components/MessageField/MessageField";
 
-export default React.memo(
-    () => {
+export default React.memo(() => {
         return (
             <div className={css['chat-bot']}>
                 <Header/>
