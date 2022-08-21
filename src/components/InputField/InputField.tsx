@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react'
+import React, {useState, useCallback, useRef} from 'react'
 import {TextField} from "@mui/material";
 import css from './InputField.module.scss'
 import SendButton from "../SendButton/SendButton";
@@ -8,6 +8,8 @@ import {USER} from "../../constants/constants";
 import {chatRequest} from "../../store/actions/ActionCreators";
 
 export default React.memo(() => {
+        const inputEl = useRef<HTMLInputElement>(null)
+
         /**
          * State
          */
@@ -41,6 +43,7 @@ export default React.memo(() => {
                 dispatch(addMessage({author: USER, message: inputValue}))
                 dispatch(chatRequest(inputValue))
                 setInputValue('')
+                inputEl.current?.focus()
             },
             [inputValue, isSendingMessage]
         )
@@ -57,6 +60,7 @@ export default React.memo(() => {
                     label='Your message'
                     variant="outlined"
                     size='small'
+                    inputRef={inputEl}
                     style={{width: '100%'}}
                     onChange={onInputChange}
                     onKeyDown={onKeyDown}
