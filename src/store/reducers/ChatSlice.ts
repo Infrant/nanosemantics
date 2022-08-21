@@ -22,6 +22,7 @@ const chatSlice = createSlice({
             state.cuid = action.payload ?? state.cuid
         },
         chatInitStart(state) {
+            state.isSendingMessage = false
             state.isLoading = true
         },
         chatInitSuccess(state) {
