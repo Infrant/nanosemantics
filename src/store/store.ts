@@ -9,10 +9,10 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import chatReducer from "./reducers/ChatSlice";
+import chatSlice from "./reducers/ChatSlice";
 
 const rootReducer = combineReducers({
-    chatReducer
+    chatSlice
 })
 
 const persistConfig = {
@@ -37,3 +37,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
+export type AppGetState = typeof store.getState
