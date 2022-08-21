@@ -7,7 +7,7 @@ export default React.memo(() => {
         /**
          * Init data
          */
-        const {messages} = useAppSelector(state => state.chatReducer)
+        const {messages} = useAppSelector(state => state.chatSlice)
         const divEl = useRef<HTMLDivElement>(null)
 
         /**
