@@ -9,8 +9,12 @@ import {clearHistory} from "../../store/reducers/ChatSlice";
 import {chatInit} from "../../store/actions/ActionCreators";
 
 export default React.memo(() => {
-        const dispatch = useAppDispatch()
 
+        /**
+         * Handlers
+         */
+
+        const dispatch = useAppDispatch()
         const onReset = useCallback(
             () => {
                 dispatch(clearHistory())
@@ -18,6 +22,10 @@ export default React.memo(() => {
             },
             []
         )
+
+        /**
+         * Render
+         */
 
         return (
             <div className={css['header']}>

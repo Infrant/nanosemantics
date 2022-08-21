@@ -4,19 +4,22 @@ import {useAppSelector} from "../../hooks/redux";
 import Message from "../Message/Message";
 
 export default React.memo(() => {
-        /**
-         * Init data
-         */
-        const {messages} = useAppSelector(state => state.chatSlice)
         const divEl = useRef<HTMLDivElement>(null)
+
+        /**
+         * State
+         */
+
+        const {messages} = useAppSelector(state => state.chatSlice)
 
         /**
          * Lifecycle
          */
+
         useEffect(
             () => {
-                const isDivElement = divEl && divEl.current
-                if (!isDivElement) return
+                const hasDivElement = divEl && divEl.current
+                if (!hasDivElement) return
 
                 divEl.current.scrollTop = divEl.current.scrollHeight - divEl.current.clientHeight
             },
@@ -26,6 +29,7 @@ export default React.memo(() => {
         /**
          * Render
          */
+
         const elements = useMemo(
             () => {
                 return messages.map(({message, author}, idx) => {

@@ -13,12 +13,14 @@ export default React.memo(() => {
         /**
          * State
          */
+
         const [inputValue, setInputValue] = useState<string>('')
         const {isSendingMessage} = useAppSelector(state => state.chatSlice)
 
         /**
          * Handlers
          */
+
         const dispatch = useAppDispatch();
 
         const onInputChange = useCallback(
@@ -32,6 +34,7 @@ export default React.memo(() => {
             (e: React.KeyboardEvent<HTMLInputElement>): void => {
                 if (e.code !== 'Enter') return
                 if (isSendingMessage) return
+                if (!inputValue) return
                 onSendMessage()
             },
             [inputValue, isSendingMessage]
@@ -39,18 +42,18 @@ export default React.memo(() => {
 
         const onSendMessage = useCallback(
             () => {
-                if (!inputValue) return
                 dispatch(addMessage({author: USER, message: inputValue}))
                 dispatch(chatRequest(inputValue))
                 setInputValue('')
                 inputEl.current?.focus()
             },
-            [inputValue, isSendingMessage]
+            [inputValue]
         )
 
         /**
          * Render
          */
+
         return (
             <div className={css['input-field']}>
                 <TextField
