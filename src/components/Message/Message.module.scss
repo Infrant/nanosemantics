@@ -6,7 +6,7 @@
   max-width: 200px;
   width: fit-content;
   padding: 10px;
-  background: $base-color;
+  background: darken($base-color, 7%);;
   word-wrap: break-word;
   border-radius: 10px;
 
@@ -15,7 +15,7 @@
   }
 
   &__bot {
-    background: lighten($base-color, 10%);
+    background: lighten($base-color, 7%);
     align-self: flex-start;
   }
 }
