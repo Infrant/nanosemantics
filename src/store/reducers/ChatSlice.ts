@@ -19,7 +19,7 @@ const chatSlice = createSlice({
         },
         chatSetCUID(state, action: PayloadAction<string>) {
             if (action.payload == state.cuid) return
-            state.cuid = action.payload
+            state.cuid = action.payload ?? state.cuid
         },
         chatInitStart(state) {
             state.isLoading = true
