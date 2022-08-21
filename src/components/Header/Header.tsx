@@ -6,12 +6,16 @@ import IconButton from '@mui/material/IconButton';
 import css from './Header.module.scss'
 import {useAppDispatch} from "../../hooks/redux";
 import {clearHistory} from "../../store/reducers/ChatSlice";
+import {chatInit} from "../../store/actions/ActionCreators";
 
 export default React.memo(() => {
         const dispatch = useAppDispatch()
 
         const onReset = useCallback(
-            () => dispatch(clearHistory()),
+            () => {
+                dispatch(clearHistory())
+                dispatch(chatInit())
+            },
             []
         )
 
