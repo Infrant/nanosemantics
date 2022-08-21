@@ -7,7 +7,10 @@ import {
     chatInitError,
     chatInitStart,
     chatInitSuccess,
-    chatSetCUID, sendMessage, sendMessageError, sendMessageSuccess
+    chatSetCUID,
+    sendMessage,
+    sendMessageError,
+    sendMessageSuccess
 } from "../reducers/ChatSlice";
 import {MessageType} from "../../interfaces/ChatTypes";
 import {BOT} from "../../constants/constants";
@@ -24,7 +27,8 @@ export const chatInit = (cuid = '') => async (dispatch: AppDispatch) => {
             dispatch(chatEvent())
         }
         if (error) {
-            dispatch(chatInitError(getResponseErrorMessage(error.code, error.message)))
+            if (typeof error === 'object') dispatch(chatInitError(getResponseErrorMessage(error.code, error.message)))
+            if (typeof error === 'string') dispatch(chatInitError(error))
         }
     } catch (e) {
         if (e instanceof Error) dispatch(chatInitError(e.message))
@@ -48,7 +52,8 @@ export const chatEvent = () => async (dispatch: AppDispatch, getState: AppGetSta
             dispatch(chatEventSuccess())
         }
         if (error) {
-            dispatch(chatInitError(getResponseErrorMessage(error.code, error.message)))
+            if (typeof error === 'object') dispatch(chatInitError(getResponseErrorMessage(error.code, error.message)))
+            if (typeof error === 'string') dispatch(chatInitError(error))
         }
     } catch (e) {
         if (e instanceof Error) dispatch(chatInitError(e.message))
@@ -71,7 +76,10 @@ export const chatRequest = (message: string) => async (dispatch: AppDispatch, ge
             dispatch(addMessage(message))
             dispatch(sendMessageSuccess())
         }
-        if (error) dispatch(sendMessageError(getResponseErrorMessage(error.code, error.message)))
+        if (error) {
+            if (typeof error === 'object') dispatch(sendMessageError(getResponseErrorMessage(error.code, error.message)))
+            if (typeof error === 'string') dispatch(sendMessageError(error))
+        }
     } catch (e) {
         if (e instanceof Error) dispatch(sendMessageError(e.message))
     }
