@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development && webpack --mode=development",
-    "build": "set NODE_ENV=production && webpack --mode=production",
-    "serve": "set NODE_ENV=development && webpack serve --mode=development"
+    "dev:windows": "set NODE_ENV=development && webpack --mode=development",
+    "build:windows": "set NODE_ENV=production && webpack --mode=production",
+    "serve:windows": "set NODE_ENV=development && webpack serve --mode=development",
+    "dev": "NODE_ENV=development webpack --mode=development",
+    "build": "NODE_ENV=production webpack --mode=production",
+    "serve": "NODE_ENV=development webpack serve --mode=development"
   },
   "keywords": [],
   "author": "",
