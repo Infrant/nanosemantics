@@ -1,6 +1,6 @@
 import {AppDispatch, AppGetState} from "../store";
 import {chatApi} from "../../api/api";
-import {getResponseErrorMessage} from "../../Utils/Utils";
+import {getResponseErrorMessage} from "../../utils/utils";
 import {
     addMessage,
     chatEventSuccess,
