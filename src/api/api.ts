@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {api} from "../constants/constants";
 import {
     EventChatPayload,
     InitChatPayload,
@@ -7,11 +8,11 @@ import {
     RequestChatResponse,
 } from "../interfaces/ChatTypes";
 
-const uuid = '772c9859-4dd3-4a0d-b87d-d76b9f43cfa4' // Id инфа
-const euid = '00b2fcbe-f27f-437b-a0d5-91072d840ed3' // Событие Ready
+const uuid = api.UUID
+const euid = api.EUID
 
 const instance = axios.create({
-    baseURL: 'https://biz.nanosemantics.ru/api/2.1/json',
+    baseURL: api.BASE_URL,
 });
 
 export const chatApi = {
@@ -25,21 +26,21 @@ export const chatApi = {
                 cuid
             }
         }
-        return instance.post<InitChatResponse>('Chat.init', data)
+        return instance.post<InitChatResponse>(api.CHAT_INIT, data)
     },
     chatEvent(cuid: string) {
         const data: EventChatPayload = {
             cuid,
             euid
         }
-        return instance.post<RequestChatResponse>('Chat.event', data)
+        return instance.post<RequestChatResponse>(api.CHAT_EVENT, data)
     },
     chatRequest(cuid: string, text: string) {
         const data: RequestChatPayload = {
             cuid,
             text
         }
-        return instance.post<RequestChatResponse>('Chat.request', data)
+        return instance.post<RequestChatResponse>(api.CHAT_REQUEST, data)
     }
 }
 
